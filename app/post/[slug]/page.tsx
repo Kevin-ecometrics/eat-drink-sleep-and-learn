@@ -6,6 +6,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { Suspense } from "react";
 import type { Database } from "@/app/lib/supabase/types";
+import { 
+  HiSparkles,
+  HiUserGroup,
+  HiBriefcase,
+  HiBuildingOffice2,
+  HiBell,
+  HiWrenchScrewdriver
+} from "react-icons/hi2";
+import { FaCar, FaBroom } from "react-icons/fa6";
 
 type Post = Database["public"]["Tables"]["posts"]["Row"];
 
@@ -38,47 +47,59 @@ const categoryColors: {
     bg: "bg-blue-100",
     text: "text-blue-700",
   },
-  Fashion: {
+  "About us": {
     gradient: "from-pink-500 to-rose-600",
     bg: "bg-pink-100",
     text: "text-pink-700",
   },
-  Technology: {
+  HR: {
     gradient: "from-indigo-500 to-purple-600",
     bg: "bg-indigo-100",
     text: "text-indigo-700",
   },
-  Travel: {
+  Service: {
     gradient: "from-sky-500 to-cyan-600",
     bg: "bg-sky-100",
     text: "text-sky-700",
   },
-  Food: {
+  Tower: {
+    gradient: "from-pink-500 to-rose-600",
+    bg: "bg-pink-100",
+    text: "text-pink-700",
+  },
+  "Front Desk": {
+    gradient: "from-purple-500 to-purple-600",
+    bg: "bg-purple-100",
+    text: "text-purple-700",
+  },
+  Maintenance: {
     gradient: "from-orange-500 to-amber-600",
     bg: "bg-orange-100",
     text: "text-orange-700",
   },
-  Photography: {
-    gradient: "from-violet-500 to-fuchsia-600",
-    bg: "bg-violet-100",
-    text: "text-violet-700",
+  Valet: {
+    gradient: "from-red-500 to-red-600",
+    bg: "bg-red-100",
+    text: "text-red-700",
   },
-  Lifestyle: {
-    gradient: "from-emerald-500 to-teal-600",
-    bg: "bg-emerald-100",
-    text: "text-emerald-700",
+  Housekeeping: {
+    gradient: "from-green-500 to-teal-600",
+    bg: "bg-green-100",
+    text: "text-green-700",
   },
 };
 
 // Iconos de categoría
-const categoryIcons: { [key: string]: string } = {
-  Home: "🏠",
-  Fashion: "👗",
-  Technology: "💻",
-  Travel: "✈️",
-  Food: "🍕",
-  Photography: "📷",
-  Lifestyle: "🌟",
+const categoryIcons: { [key: string]: React.ComponentType<{ className?: string }> } = {
+  Home: () => null, // Home usa SVG
+  "About us": HiSparkles,
+  HR: HiUserGroup,
+  Service: HiBriefcase,
+  Tower: HiBuildingOffice2,
+  "Front Desk": HiBell,
+  Maintenance: HiWrenchScrewdriver,
+  Valet: FaCar,
+  Housekeeping: FaBroom,
 };
 
 async function PostContent({ params }: PostContentProps) {
@@ -129,7 +150,7 @@ async function PostContent({ params }: PostContentProps) {
   };
 
   const categoryStyle = getCategoryStyle(post.category);
-  const categoryIcon = categoryIcons[post.category || "Home"] || "📝";
+  const CategoryIcon = categoryIcons[post.category || "Home"];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
@@ -199,7 +220,7 @@ async function PostContent({ params }: PostContentProps) {
                 <div
                   className={`inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r ${categoryStyle.gradient} rounded-full text-white font-bold text-sm shadow-xl backdrop-blur-sm`}
                 >
-                  <span className="text-lg">{categoryIcon}</span>
+                  {CategoryIcon && <CategoryIcon className="w-5 h-5" />}
                   {post.category}
                 </div>
               </div>
@@ -216,7 +237,7 @@ async function PostContent({ params }: PostContentProps) {
                   <span
                     className={`inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r ${categoryStyle.gradient} rounded-full text-white font-bold text-sm shadow-lg`}
                   >
-                    <span className="text-lg">{categoryIcon}</span>
+                    {CategoryIcon && <CategoryIcon className="w-5 h-5" />}
                     {post.category}
                   </span>
                 </div>
@@ -427,8 +448,8 @@ async function PostContent({ params }: PostContentProps) {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {typedRelatedPosts.map((relatedPost) => {
                     const relatedStyle = getCategoryStyle(relatedPost.category);
-                    const relatedIcon =
-                      categoryIcons[relatedPost.category || "Home"] || "📝";
+                    const RelatedIcon =
+                      categoryIcons[relatedPost.category || "Home"];
 
                     return (
                       <div
@@ -441,7 +462,7 @@ async function PostContent({ params }: PostContentProps) {
                             <span
                               className={`inline-flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r ${relatedStyle.gradient} rounded-full text-white text-xs font-bold shadow-md`}
                             >
-                              <span>{relatedIcon}</span>
+                              {RelatedIcon && <RelatedIcon className="w-4 h-4" />}
                               {relatedPost.category}
                             </span>
                           </div>

@@ -8,12 +8,13 @@ import type { Database } from "@/app/lib/supabase/types";
 import { 
   HiTag, 
   HiSparkles,
-  HiCamera,
-  HiGlobeAlt,
-  HiLightningBolt,
-  HiHeart,
-  HiCake
-} from "react-icons/hi";
+  HiUserGroup,
+  HiBriefcase,
+  HiBuildingOffice2,
+  HiBell,
+  HiWrenchScrewdriver
+} from "react-icons/hi2";
+import { FaCar, FaBroom } from "react-icons/fa6";
 
 type PostCategoryRow = Pick<
   Database["public"]["Tables"]["posts"]["Row"],
@@ -27,38 +28,50 @@ interface CategoriesSidebarProps {
 
 // Iconos y colores por categoría
 const categoryConfig: Record<string, { icon: any; color: string; bgColor: string; activeColor: string }> = {
-  Fashion: { 
+  "About us": { 
     icon: HiSparkles, 
     color: "text-pink-600", 
     bgColor: "bg-pink-50",
     activeColor: "from-pink-500 to-pink-600"
   },
-  Technology: { 
-    icon: HiLightningBolt, 
+  HR: { 
+    icon: HiUserGroup, 
     color: "text-purple-600", 
     bgColor: "bg-purple-50",
     activeColor: "from-purple-500 to-purple-400"
   },
-  Travel: { 
-    icon: HiGlobeAlt, 
+  Service: { 
+    icon: HiBriefcase, 
     color: "text-blue-600", 
     bgColor: "bg-blue-50",
     activeColor: "from-blue-500 to-blue-400"
   },
-  Food: { 
-    icon: HiCake, 
-    color: "text-orange-600", 
-    bgColor: "bg-orange-50",
-    activeColor: "from-orange-500 to-orange-600"
+  "Tower": { 
+    icon: HiBuildingOffice2, 
+    color: "text-pink-600", 
+    bgColor: "bg-pink-50",
+    activeColor: "from-pink-500 to-pink-600"
   },
-  Photography: { 
-    icon: HiCamera, 
+  "Front Desk": { 
+    icon: HiBell, 
     color: "text-purple-600", 
     bgColor: "bg-purple-50",
-    activeColor: "from-purple-500 to-purple-600"
+    activeColor: "from-purple-500 to-purple-400"
   },
-  Lifestyle: { 
-    icon: HiHeart, 
+  "Maintenance": { 
+    icon: HiWrenchScrewdriver, 
+    color: "text-orange-600", 
+    bgColor: "bg-orange-50",
+    activeColor: "from-orange-500 to-orange-400"
+  },
+  "Valet": { 
+    icon: FaCar, 
+    color: "text-red-600", 
+    bgColor: "bg-red-50",
+    activeColor: "from-red-500 to-red-600"
+  },
+  "Housekeeping": { 
+    icon: FaBroom, 
     color: "text-green-600", 
     bgColor: "bg-green-50",
     activeColor: "from-green-500 to-green-600"
@@ -100,12 +113,14 @@ export default function CategoriesSidebar({
       });
 
       const allCategories = [
-        "Fashion",
-        "Technology",
-        "Travel",
-        "Food",
-        "Photography",
-        "Lifestyle",
+        "About us",
+        "HR",
+        "Service",
+        "Tower",
+        "Front Desk",
+        "Maintenance",
+        "Valet",
+        "Housekeeping",
       ];
 
       const categoriesWithCounts = allCategories.map((name) => ({

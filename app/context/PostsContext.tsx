@@ -24,12 +24,14 @@ const PostsContext = createContext<PostsContextType | undefined>(undefined);
 
 // Categorías disponibles (mismas que en la imagen)
 const AVAILABLE_CATEGORIES = [
-  "Travel",
-  "Fashion",
-  "Lifestyle",
-  "Technology",
-  "Food",
-  "Photography",
+  "About us",
+  "HR",
+  "Service",
+  "Tower",
+  "Front Desk",
+  "Maintenance",
+  "Valet",
+  "Housekeeping",
 ];
 
 // Formatos permitidos para imágenes

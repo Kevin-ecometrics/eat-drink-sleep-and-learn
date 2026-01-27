@@ -22,12 +22,9 @@ import {
 
 // Definir las categorías disponibles (las mismas del contexto)
 const AVAILABLE_CATEGORIES = [
-  "Travel",
-  "Fashion",
-  "Lifestyle",
-  "Technology",
-  "Food",
-  "Photography",
+  "About Us",
+  "HR",
+  "Service",
 ];
 
 export default function AdminEdit() {

@@ -127,12 +127,14 @@ export default function Home() {
   const getCategoryColor = () => {
     const categoryColors: { [key: string]: string } = {
       Home: "from-blue-500 to-blue-600",
-      Fashion: "from-pink-500 to-rose-600",
-      Technology: "from-indigo-500 to-purple-600",
-      Travel: "from-sky-500 to-cyan-600",
-      Food: "from-orange-500 to-amber-600",
-      Photography: "from-violet-500 to-fuchsia-600",
-      Lifestyle: "from-emerald-500 to-teal-600",
+      "About us": "from-pink-500 to-rose-600",
+      HR: "from-indigo-500 to-purple-600",
+      Service: "from-sky-500 to-cyan-600",
+      Tower: "from-pink-500 to-rose-600",
+      "Front Desk": "from-purple-500 to-purple-600",
+      Maintenance: "from-orange-500 to-amber-600",
+      Valet: "from-red-500 to-red-600",
+      Housekeeping: "from-green-500 to-teal-600",
     };
     return categoryColors[selectedCategory || "Home"] || categoryColors.Home;
   };
@@ -156,6 +158,9 @@ export default function Home() {
               {/* Header del blog */}
               <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
                 <div className="flex items-center gap-3">
+                  <svg viewBox="0 0 63.45 29.79" role="img" aria-label="Logo" className="w-16 h-auto flex-shrink-0">
+                    <path d="M0.06,2.22c-0.28-0.96,0.47-2.45,2.16-2.19c6.75,1.1,23.93,4.55,30.9,5.75c1.76,0.45,2.13,1.18,2.25,1.56c0.88,4.01,0.87,5.24,1.28,6.35s1.15,1.34,3.04,1.35c2.83,0,17.96,0.08,21.25,0.18c2.36,0.07,2.71,1.1,2.44,2.6c-0.1,0.53-0.7,3.66-0.99,5.26c-0.18,1-0.84,1.61-1.83,1.81l-20.4,4.86c-0.89,0.15-2.12-0.09-2.45-1.56c-0.51-2.22-1.16-5.43-1.53-7.04c-0.44-1.92-1.12-2.51-3.06-2.49c-5.06,0.08-21.76,1.29-23.73,1.31c-2.04,0.03-3.82-0.28-4.6-2.76C4.15,15.16,0.06,2.22,0.06,2.22" />
+                  </svg>
                   <div>
                     <h1 className="text-2xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
                       My Blog
@@ -337,7 +342,7 @@ export default function Home() {
                           >
                             {post.category || "Uncategorized"}
                           </span>
-                          <span className="text-sm text-gray-500">
+                          <span className="text-sm text-gray-500 hidden">
                             {new Date(post.created_at).toLocaleDateString(
                               "en-US",
                               {
@@ -452,20 +457,6 @@ export default function Home() {
                 <SearchBar onSearch={handleSearch} />
               </div>
 
-              {/* Categorías mejoradas */}
-              <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="text-xl">📂</span>
-                  <h3 className="text-lg font-bold text-gray-800">
-                    Categories
-                  </h3>
-                </div>
-                <CategoriesSidebar
-                  onCategoryClick={handleCategoryClick}
-                  activeCategory={selectedCategory}
-                />
-              </div>
-
               {/* Artículos Populares mejorados */}
               <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
                 <div className="flex items-center gap-2 mb-4">
@@ -489,7 +480,7 @@ export default function Home() {
                             </h4>
                           </Link>
                           <div className="flex items-center text-xs text-gray-500">
-                            <span>
+                            <span className="hidden">
                               {new Date(post.created_at).toLocaleDateString(
                                 "en-US",
                                 {
@@ -522,6 +513,20 @@ export default function Home() {
                 <button className="w-full bg-white text-gray-800 py-2.5 rounded-full font-semibold hover:bg-gray-100 transition-all hover:scale-105 shadow-md">
                   Subscribe Now
                 </button>
+              </div>
+
+              {/* Categorías mejoradas */}
+              <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="text-xl">📂</span>
+                  <h3 className="text-lg font-bold text-gray-800">
+                    Categories
+                  </h3>
+                </div>
+                <CategoriesSidebar
+                  onCategoryClick={handleCategoryClick}
+                  activeCategory={selectedCategory}
+                />
               </div>
             </div>
           </div>
