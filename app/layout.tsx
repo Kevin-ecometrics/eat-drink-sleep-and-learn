@@ -17,9 +17,71 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "EDS - Eat.Drink.Sleep.and.Learn",
+  title: {
+    default: "EDS - Eat.Drink.Sleep.and.Learn",
+    template: "%s | EDS"
+  },
   description:
-    "A community platform for sharing and discovering posts about eating, drinking, sleeping, and learning. Connect with others and grow together.",
+    "Hola! A community platform for sharing and discovering posts about eating, drinking, sleeping, and learning. Connect with others and grow together in our diverse categories including HR, Service, Tower, Front Desk, Maintenance, Valet, and Housekeeping.",
+  keywords: [
+    "blog",
+    "community",
+    "hospitality",
+    "learning",
+    "HR",
+    "maintenance",
+    "valet",
+    "housekeeping",
+    "front desk",
+    "tower services"
+  ],
+  authors: [{ name: "EDS Team" }],
+  creator: "EDS Platform",
+  publisher: "EDS",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
+  openGraph: {
+    title: "Hola - EDS Platform",
+    description:
+      "Hola! Welcome to EDS - A community platform for sharing and discovering posts about eating, drinking, sleeping, and learning.",
+    url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+    siteName: "EDS Platform",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hola - EDS Platform",
+    description:
+      "Hola! Welcome to EDS - A community platform for sharing and discovering posts.",
+    creator: "@edsplatform",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "16x16", type: "image/png" },
+      { url: "/favicon.ico", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
