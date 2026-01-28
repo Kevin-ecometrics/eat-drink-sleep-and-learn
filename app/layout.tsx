@@ -46,14 +46,14 @@ export const metadata: Metadata = {
   },
 
   // Dominio real del sitio
-  metadataBase: new URL("https://eatdrinkandsleep.net"),
+  metadataBase: new URL("https://www.eatdrinksleepandlearn.com"),
 
   // OpenGraph para previews en WhatsApp, Facebook, Discord, etc.
   openGraph: {
     title: "EDS - Eat.Drink.Sleep.and.Learn",
     description:
       "Hola! Welcome to EDS - A community platform for sharing and discovering posts about eating, drinking, sleeping, and learning.",
-    url: "https://eatdrinkandsleep.net",
+    url: "https://www.eatdrinksleepandlearn.com",
     siteName: "EDS Platform",
     locale: "en_US",
     type: "website",
@@ -65,15 +65,6 @@ export const metadata: Metadata = {
         alt: "EDS Logo",
       },
     ],
-  },
-
-  // Twitter Card
-  twitter: {
-    card: "summary_large_image",
-    title: "EDS - Eat.Drink.Sleep.and.Learn",
-    description:
-      "Hola! A community platform for sharing and discovering posts about eating, drinking, sleeping, and learning.",
-    creator: "@edsplatform",
   },
 
   robots: {
@@ -88,15 +79,17 @@ export const metadata: Metadata = {
     },
   },
 
+  // Canonical URL
+  alternates: {
+    canonical: "https://www.eatdrinksleepandlearn.com",
+  },
+
   // Favicons e íconos de la app
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "16x16", type: "image/png" },
       { url: "/favicon.ico", sizes: "32x32", type: "image/png" },
       { url: "/favicon.ico", sizes: "48x48", type: "image/png" },
-    ],
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
 
