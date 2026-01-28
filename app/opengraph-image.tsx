@@ -59,7 +59,7 @@ export default async function Image() {
             marginBottom: 20,
           }}
         >
-          Hola
+          Hello
         </div>
 
         {/* Subtítulo */}
