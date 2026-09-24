@@ -368,7 +368,7 @@ export default function Home() {
                         </h2>
 
                         {/* Contenido preview */}
-                        <p className="text-gray-700 mb-6 leading-relaxed text-base">
+                        <p className="text-gray-700 mb-6 leading-relaxed text-base whitespace-pre-line break-words [overflow-wrap:anywhere]">
                           {post.content && post.content.length > 200
                             ? `${post.content.substring(0, 200)}...`
                             : post.content || "No content available"}

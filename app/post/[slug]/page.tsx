@@ -360,15 +360,8 @@ async function PostContent({ params }: PostContentProps) {
                 </video>
               )}
 
-              <div className="text-gray-700 leading-relaxed space-y-6">
-                {post.content.split("\n").map(
-                  (paragraph, index) =>
-                    paragraph.trim() && (
-                      <p key={index} className="text-lg leading-loose">
-                        {paragraph}
-                      </p>
-                    )
-                )}
+              <div className="text-gray-700 leading-relaxed text-lg leading-loose whitespace-pre-line break-words [overflow-wrap:anywhere]">
+                {post.content}
               </div>
             </div>
 
